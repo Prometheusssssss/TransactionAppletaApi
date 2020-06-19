@@ -1,0 +1,5 @@
+{
+  "APPID": "wx98b8af7149b4f6be",
+  "SECRET": "95e1cd67b579a9272925bbedaa1440d2",
+  "TOKEN_URL": "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}"
+}

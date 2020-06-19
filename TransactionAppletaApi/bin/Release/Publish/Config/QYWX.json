@@ -1,0 +1,5 @@
+{
+  "APPID": "wxb35f81ca084a305c",
+  "SECRET": "yzxLwJd857NzRTTkH-SYGESUoL0W091SewMzdETVvLg",
+  "TOKEN_URL": "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={0}&corpsecret={1}"
+}
