@@ -1,8 +1,0 @@
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\obj\Debug\Base.csproj.CoreCompileInputs.cache
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\bin\Debug\Base.dll
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\bin\Debug\Base.pdb
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\bin\Debug\Newtonsoft.Json.dll
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\bin\Debug\Newtonsoft.Json.xml
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\obj\Debug\Base.csproj.CopyComplete
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\obj\Debug\Base.dll
-D:\Allen\大嘴巴\TransactionApplet\Api\Base\obj\Debug\Base.pdb
