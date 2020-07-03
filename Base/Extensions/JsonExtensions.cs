@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Script.Serialization;
 
 namespace Join
 {
@@ -181,32 +182,34 @@ namespace Join
                 string type = data.type;
                 string compared = data.compared;
                 string filterValue = data.filterValue;
-
-                switch (type)
+                if (!string.IsNullOrWhiteSpace(filterValue))
                 {
-                    case "string":
-                        if (compared == "like")
-                        {
-                            string valueSql = "";
-                            //判断filedName是否为数组
-                            var nameList = fieldName.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                            for (int j = 0; j < nameList.Count(); j++)
+                    switch (type)
+                    {
+                        case "string":
+                            if (compared == "like")
                             {
-                                var item = nameList[j];
-                                if (j == nameList.Count() - 1)
-                                    valueSql = valueSql.AddSql(item + " like '%" + filterValue + "%'", false);
-                                else
-                                    valueSql = valueSql.AddSql(item + " like '%" + filterValue + "%' or ", false);
+                                string valueSql = "";
+                                //判断filedName是否为数组
+                                var nameList = fieldName.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                for (int j = 0; j < nameList.Count(); j++)
+                                {
+                                    var item = nameList[j];
+                                    if (j == nameList.Count() - 1)
+                                        valueSql = valueSql.AddSql(item + " like '%" + filterValue + "%'", false);
+                                    else
+                                        valueSql = valueSql.AddSql(item + " like '%" + filterValue + "%' or ", false);
 
+                                }
+                                sql = sql.AddSql("(" + valueSql + ")", false);
                             }
-                            sql = sql.AddSql("(" + valueSql + ")", false);
-                        }
-                        break;
-                    case "date":
-                        sql = sql.AddSql(fieldName + compared + "'" + filterValue + "'", true);
-                        break;
-                    default:
-                        break;
+                            break;
+                        case "date":
+                            sql = sql.AddSql(fieldName + compared + "'" + filterValue + "'", true);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             return sql;
@@ -229,12 +232,65 @@ namespace Join
                 result = str + append;
             }
             else
-            {
-                if (isAppendAnd)
-                    append = append + " and ";
                 result = append;
+            return result;
+        }
+        #endregion
+
+        #region X.成员方法[AppendSql]
+        /// <summary>
+        /// 转CU条件
+        /// </summary>
+        public static string AppendSql(this string str, string append, string appChar, bool isAppend)
+        {
+            var result = "";
+            if (!string.IsNullOrEmpty(str))
+            {
+                if (isAppend)
+                    str += ",";
+                result = str + appChar + append + appChar;
+            }
+            else
+            {
+                result = appChar + append + appChar;
             }
             return result;
+        }
+        #endregion
+
+        #region X.成员方法[GetValue]
+        /// <summary>
+        /// 获取字典值
+        /// </summary>
+        public static string GetValue(this Dictionary<string, object> str, string key)
+        {
+            var result = "";
+            foreach (var item in str)
+            {
+                if (item.Key == key)
+                    result = item.Value.ToString();
+            }
+            return result;
+        }
+        #endregion
+
+        #region X.成员方法[JsonToDictionary]
+        /// <summary>
+        /// json转换dic
+        /// </summary>
+        public static Dictionary<string, object> JsonToDictionary(this string str)
+        {
+            //实例化JavaScriptSerializer类的新实例
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            try
+            {
+                //将指定的 JSON 字符串转换为 Dictionary<string, object> 类型的对象
+                return jss.Deserialize<Dictionary<string, object>>(str);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         #endregion
     }

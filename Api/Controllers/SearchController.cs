@@ -52,6 +52,7 @@ namespace TransactionAppletaApi
 
         /// <summary>
         /// POST获取数据
+        /// http://localhost:64665/api/_search/postSearch
         /// </summary>
         [HttpPost]
         [Route("postSearch")]

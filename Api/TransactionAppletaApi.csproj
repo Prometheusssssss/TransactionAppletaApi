@@ -117,12 +117,16 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\OssController.cs" />
+    <Compile Include="Controllers\CudController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="BizServiceBase.cs" />
     <Compile Include="DataClass.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Oss\OssBadRequest.cs" />
+    <Compile Include="Oss\OssClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchHelper\SearchHelper.cs" />
     <Compile Include="Security\AuthorizationRequiredAttribute.cs" />

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionAppletaApi", "TransactionAppletaApi\TransactionAppletaApi.csproj", "{B177FFC5-210F-43B3-9738-36B86C4A461E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionAppletaApi", "Api\TransactionAppletaApi.csproj", "{B177FFC5-210F-43B3-9738-36B86C4A461E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Join", "Base\Join.csproj", "{C9019439-08E1-4935-8DA2-A1CDEA19A2F4}"
 EndProject
