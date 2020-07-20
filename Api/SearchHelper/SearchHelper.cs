@@ -15,7 +15,7 @@ namespace TransactionAppletaApi
                 if (whereSql == "")
                     whereSql = "1=1";
                 //查询分账明细表已分账数据
-                var sql = string.Format(@"SELECT * from {0} where {1}", tableName, whereSql);
+                var sql = string.Format(@"SELECT * from {0} where is_delete=0 and {1} ", tableName, whereSql);
                 //分页
                 if (page != -1 && limit != -1)
                 {

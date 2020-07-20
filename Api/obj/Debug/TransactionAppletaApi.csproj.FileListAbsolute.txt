@@ -126,3 +126,4 @@ D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.csp
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.csproj.CopyComplete
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.dll
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.pdb
+D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\LitJson.dll
