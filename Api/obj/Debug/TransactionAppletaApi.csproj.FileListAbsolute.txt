@@ -94,6 +94,7 @@ D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\roslyn\VBCSCompiler.exe.config
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\Dal.dll
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\Google.Protobuf.dll
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\Join.dll
+D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\LitJson.dll
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\MySql.Data.dll
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\Newtonsoft.Json.dll
@@ -126,4 +127,3 @@ D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.csp
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.csproj.CopyComplete
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.dll
 D:\Allen\大嘴巴\TransactionApplet\Api\Api\obj\Debug\TransactionAppletaApi.pdb
-D:\Allen\大嘴巴\TransactionApplet\Api\Api\bin\LitJson.dll

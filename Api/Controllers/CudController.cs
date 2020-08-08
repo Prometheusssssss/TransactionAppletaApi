@@ -36,8 +36,18 @@ namespace TransactionAppletaApi
                         if (kid == "-1")
                         {
                             var ra = new Random();
-                            var keys = "`CODE`,`IS_DELETE`";
-                            var values = "'" + DateTime.Now.ToString("yyyyMMddHHmmss") + ra.Next(1000, 9999) + "',0";
+                            var keys = "";
+                            var values = "";
+                            if (tablename.ToUpper() != "B_ORDER_MSG_DETAILS" && tablename.ToUpper() != "B_MESSAGE")
+                            {
+                                keys = "`CODE`,`IS_DELETE`,`CRT_TIME`";
+                                values = "'" + DateTime.Now.ToString("yyyyMMddHHmmss") + ra.Next(1000, 9999) + "',0,'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+                            }
+                            else
+                            {
+                                keys = "`IS_DELETE`,`CRT_TIME`";
+                                values = "0,'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+                            }
                             foreach (var item in dict)
                             {
                                 if (item.Key != "KID")
@@ -183,8 +193,8 @@ namespace TransactionAppletaApi
                 var userModel = SearchByUserId(userId);
                 //插入消息
 
-                var sql = string.Format(@"insert B_MESSAGE (`THENE`,`STATUS`,`USER_ID`,`USER_NAME`,`USER_PHONE`,`CONTENT`,`IS_DELETE`)
-                                                    values('{0}','待发送','{1}','{2}','{3}','{4}',0)", theme, userId, userModel.userName, userModel.userPhone, content);
+                var sql = string.Format(@"insert B_MESSAGE (`THENE`,`STATUS`,`USER_ID`,`USER_NAME`,`USER_PHONE`,`CONTENT`,`IS_DELETE`,`CRT_TIME`)
+                                                    values('{0}','待发送','{1}','{2}','{3}','{4}',0,'{5}')", theme, userId, userModel.userName, userModel.userPhone, content, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 var dt = x.ExecuteSqlCommand(sql);
             }
         }
@@ -248,18 +258,89 @@ namespace TransactionAppletaApi
                     using (var x = Join.Dal.MySqlProvider.X())
                     {
                         //修改提现单数据
-                        var updateSql = string.Format(@"update  b_withdrawal set APPROVAL_USER_ID='{0}',APPROVAL_USER_NAME='{1}',APPROVAL_TIME='{2}',PAY_AMOUNT='{3}',PAY_TIME='{5}',STATUS='已付款' where kid = '{4}'", payUserId, payUserName, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), payAmount, kid, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        var updateSql = string.Format(@"update  b_withdrawal set PAY_USER_ID='{0}',PAY_USER_NAME='{1}',PAY_AMOUNT='{2}',PAY_TIME='{3}',STATUS='已打款' where kid = '{4}'"
+                                                    , payUserId, payUserName, payAmount, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), kid);
                         x.ExecuteSqlCommand(updateSql);
                         //插入流水表数据，修改User表金额
                         InsertAccountRecord(kid, orderCode, orderAmount, "支出", "商品", "已结算", userId, userName, userPhone, payAmount);
                         //插入消息
-                        InsertMsg("提现成功提醒", "提现成功", userId, userName, userPhone);
+                        InsertMsg("提现成功提醒", "您的提现申请" + payAmount + "元 已审核通过并支付，请注意查收。", userId, userName, userPhone);
                         //获取返回值
                         var selectSql = "select * from b_withdrawal where is_delete=0 and kid='" + kid + "'";
                         backTable = x.ExecuteSqlCommand(selectSql).Tables[0];
                         x.Close();
                     }
                     return new { Table = backTable, IS_SUCCESS = true, MSG = "" };
+                }
+                catch (Exception ex)
+                {
+                    return new { Table = "", IS_SUCCESS = false, MSG = ex.Message };
+                }
+            });
+        }
+        #endregion
+
+        #region 单据确认收货
+        /// <summary>
+        /// 提现单据
+        /// http://localhost:64665/api/_cud/confirmedOrder
+        /// </summary>
+        [HttpPost]
+        [Route("confirmedOrder")]
+        public IHttpActionResult confirmedOrder([FromBody]JToken json)
+        {
+            return this.TryReturn<object>(() =>
+            {
+                try
+                {
+                    var backTable = new DataTable();
+                    var jsn = json.AsDynamic();
+                    string kid = jsn.KID;
+                    using (var x = Join.Dal.MySqlProvider.X())
+                    {
+                        //1、更新订单状态为已完成
+                        var updateOrderSql = "update b_order set status='已完成',CONFIRMED_TIME='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where kid ='" + kid + "'";
+                        x.ExecuteSqlCommand(updateOrderSql);
+                        //查询订单信息
+                        var selectOrderSql = "select * from b_order where kid='" + kid + "' and is_delete =0";
+                        backTable = x.ExecuteSqlCommand(selectOrderSql).Tables[0];
+                        //2、发消息给卖家，消息表插入数据
+                        if (backTable.Rows.Count > 0)
+                        {
+                            var sellUserId = backTable.Rows[0]["SELL_USER_ID"].ToString();
+                            var sellUserName = backTable.Rows[0]["SELL_USER_NAME"].ToString();
+                            var sellUserPhone = backTable.Rows[0]["SELL_USER_PHONE"].ToString();
+                            var productName = backTable.Rows[0]["PRODUCT_NAME"].ToString();
+                            InsertMsg("交易完成提醒", "您的宝贝:[" + productName + "]已交易成功。", sellUserId, sellUserName, sellUserPhone);
+                            //3、更新用户表累计收益金额，可用资金字段，扣除即将收入字段
+                            var orderAmount = decimal.Parse(backTable.Rows[0]["PRICE"].ToString());
+                            //获取用户余额
+                            var selUserSql = "select * from a_user where kid='" + sellUserId + "'";
+                            var selUserDt = x.ExecuteSqlCommand(selUserSql);
+                            if (selUserDt.Tables[0].Rows.Count > 0)
+                            {
+                                var row = selUserDt.Tables[0].Rows[0];
+                                //用户累计收益
+                                var income = decimal.Parse(row["CUMULATIVE_INCOME"].ToString());
+                                var incomeResult = income + orderAmount;
+                                //账户余额
+                                var balance = decimal.Parse(row["BALANCE"].ToString());
+                                var balanceResult = balance + orderAmount;
+                                //即将收入
+                                var upIncome = decimal.Parse(row["UPCOMING_INCOME"].ToString());
+                                var upIncomeResult = upIncome - orderAmount;
+                                //修改Sql
+                                var updateUserSql = "update a_user set BALANCE='" + incomeResult.ToString() + "',CUMULATIVE_INCOME='" + balanceResult.ToString() + "', UPCOMING_INCOME='" + upIncomeResult.ToString() + "' where kid='" + sellUserId + "'";
+                                x.ExecuteSqlCommand(updateUserSql);
+                                x.Close();
+                                return new { Table = backTable, IS_SUCCESS = true, MSG = "" };
+                            }
+                            x.Close();
+                            return new { Table = "", IS_SUCCESS = false, MSG = "未查询到用户信息" };
+                        }
+                        x.Close();
+                        return new { Table = "", IS_SUCCESS = false, MSG = "未查询到订单信息" };
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -279,10 +360,10 @@ namespace TransactionAppletaApi
             {
                 var insertSql = string.Format(@"insert into B_ACCOUNT_RECORD (`CODE`,`USER_ID`,`USER_NAME`,`USER_PHONE`,
                                             `TYPE`,`RECEIVE_TYPE`,`SELETTMENT_STATUS`,`SELETTMENT_TIME`,`SELETTMENT_AMOUNT`,
-                                            `ORDER_AMOUNT`,`ORDER_ID`,`ORDER_CODE`,`IS_DELETE`) values ('{0}','{1}','{2}','{3}','{4}'
-                                            ,'{5}','{6}','{7}','{8}','{9}','{10}','{11}',0)", DateTime.Now.ToString("yyyyMMddHHmmss"),
+                                            `ORDER_AMOUNT`,`ORDER_ID`,`ORDER_CODE`,`IS_DELETE`,`CRT_TIME`) values ('{0}','{1}','{2}','{3}','{4}'
+                                            ,'{5}','{6}','{7}','{8}','{9}','{10}','{11}',0,'{12}')", DateTime.Now.ToString("yyyyMMddHHmmss"),
                                             userId, userName, userPhone, type, receiveType, settStatus, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                                            amount, orderAmount, orderId, orderCode);
+                                            amount, orderAmount, orderId, orderCode, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 x.ExecuteSqlCommand(insertSql);
                 //获取用户余额
                 var selUserSql = "select * from a_user where kid='" + userId + "'";
@@ -315,11 +396,117 @@ namespace TransactionAppletaApi
             using (var x = Join.Dal.MySqlProvider.X())
             {
                 var insertSql = string.Format(@"insert into B_MESSAGE (`THEME`,`STATUS`,`USER_ID`,`USER_NAME`,
-                                            `USER_PHONE`,`CONTENT`,`SEND_TIME`,`IS_DELETE`) values ('{0}','{1}','{2}','{3}','{4}'
-                                            ,'{5}','{6}',0)", theme, "待发送", userId, userName, userPhone, content
-                                            , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                                            `USER_PHONE`,`CONTENT`,`SEND_TIME`,`IS_DELETE`,`CRT_TIME`) values ('{0}','{1}','{2}','{3}','{4}'
+                                            ,'{5}','{6}',0,'{7}')", theme, "待发送", userId, userName, userPhone, content
+                                            , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 x.ExecuteSqlCommand(insertSql);
             }
+        }
+        #endregion
+
+        #region 生成订单
+        /// <summary>
+        /// 生成订单
+        /// http://localhost:64665/api/_cud/createOrder
+        /// </summary>
+        [HttpPost]
+        [Route("createOrder")]
+        public IHttpActionResult CreateOrder([FromBody]JToken json)
+        {
+            return this.TryReturn<object>(() =>
+            {
+                try
+                {
+                    //执行sql
+                    using (var x = Join.Dal.MySqlProvider.X())
+                    {
+                        var dicJson = json.ToJsonString();
+                        var dict = dicJson.JsonToDictionary();
+                        //获取产品ID 查询产品是否在上架时间
+                        var productId = dict.GetValue("PRODUCT_ID");
+                        var productName = dict.GetValue("PRODUCT_NAME");
+                        var nowDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        var selectProductSql = "select * from B_PRODUCT_LIST where kid='" + productId + "' and OFF_SHELF_TIME > '" + nowDate + "'";
+                        var selectProductTables = x.ExecuteSqlCommand(selectProductSql);
+                        if (selectProductTables.Tables[0].Rows.Count > 0)
+                        {
+                            var kid = dict.GetValue("KID");
+                            var ra = new Random();
+                            var keys = "`CODE`,`IS_DELETE`,`CRT_TIME`";
+                            var code = DateTime.Now.ToString("yyyyMMddHHmmss") + ra.Next(1000, 9999);
+                            var values = "'" + code + "',0," + "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+                            foreach (var item in dict)
+                            {
+                                if (item.Key != "KID")
+                                {
+                                    keys = keys.AppendSql(item.Key, "`", true);
+                                    values = values.AppendSql(item.Value.ToString(), "'", true);
+                                }
+                            }
+                            var sql = string.Format(@"insert into {0} ({1}) values ({2})", "b_order", keys, values);
+                            x.ExecuteSqlCommand(sql);
+                            //查询订单
+                            var selectOrderSql = string.Format(@"select * from b_order where code='{0}'", code);
+                            var dataTable = x.ExecuteSqlCommand(selectOrderSql);
+                            if (dataTable.Tables[0].Rows.Count > 0)
+                            {
+                                var row = dataTable.Tables[0].Rows[0];
+                                //卖家ID
+                                string sellUserId = row["SELL_USER_ID"].ToString();
+                                //卖家昵称
+                                string sellUserName = row["SELL_USER_NAME"].ToString();
+                                //卖家手机号
+                                string sellUserPhone = row["SELL_USER_PHONE"].ToString();
+                                //金额
+                                string price = row["PRICE"].ToString();
+                                //单据ID
+                                string orderId = row["KID"].ToString();
+
+                                //下架产品
+                                var updateProductSql = string.Format(@"update B_PRODUCT_LIST set status='已卖出' where kid='{0}'", productId);
+                                x.ExecuteSqlCommand(updateProductSql);
+                                //插入账户流水收入类型
+                                var insertAccountRecordSql = string.Format(@"insert into B_ACCOUNT_RECORD (`CODE`,`USER_ID`,`USER_NAME`,`USER_PHONE`,
+                                            `TYPE`,`RECEIVE_TYPE`,`SELETTMENT_STATUS`,`SELETTMENT_TIME`,`SELETTMENT_AMOUNT`,
+                                            `ORDER_AMOUNT`,`ORDER_ID`,`ORDER_CODE`,`IS_DELETE`,`CRT_TIME`) values ('{0}','{1}','{2}','{3}','{4}'
+                                            ,'{5}','{6}','{7}','{8}','{9}','{10}','{11}',0,'{12}')", DateTime.Now.ToString("yyyyMMddHHmmss"),
+                                                   sellUserId, sellUserName, sellUserPhone, "收入", "商品", "待结算", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                                                   price, price, orderId, code, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                                x.ExecuteSqlCommand(insertAccountRecordSql);
+                                //修改卖家即将收入增加
+                                //获取用户余额
+                                var selUserSql = "select * from a_user where kid='" + sellUserId + "'";
+                                var selUserDt = x.ExecuteSqlCommand(selUserSql);
+                                var userRows = selUserDt.Tables[0].Rows;
+                                if (userRows.Count > 0)
+                                {
+                                    var upIncome = decimal.Parse(userRows[0]["UPCOMING_INCOME"].ToString());
+                                    var amount = decimal.Parse(price);
+                                    //修改用户表金额
+                                    var resultAmount = upIncome + amount;
+                                    var updateUserSql = "update a_user set UPCOMING_INCOME='" + resultAmount + "' where kid='" + sellUserId + "'";
+                                    x.ExecuteSqlCommand(updateUserSql);
+                                }
+                                //执行插入消息
+                                InsertMsg("发货提醒", "您的宝贝:[" + productName + "]已被拍下,请注意及时发货", sellUserId, sellUserName, sellUserPhone);
+                                return new { Table = dataTable, IS_SUCCESS = true, MSG = "" };
+                            }
+                            else
+                            {
+                                return new { Table = "", IS_SUCCESS = false, MSG = "订单生成失败" };
+                            }
+                        }
+                        else
+                        {
+                            return new { Table = "", IS_SUCCESS = false, MSG = "商品已下架" };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return new { Table = "", IS_SUCCESS = false, MSG = ex.Message };
+                }
+            });
         }
         #endregion
 

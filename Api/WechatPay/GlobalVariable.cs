@@ -13,7 +13,7 @@ namespace TransactionAppletaApi
         public const string REFUND_URL = "https://api.mch.weixin.qq.com/secapi/pay/refund";
      
 
-        public static string MCH_ID = "1546693251"; //微信支付分配的商户号
+        public static string MCH_ID = "1601662044"; //微信支付分配的商户号
         public static string API_KEY = "60878661699542A59601575597ED9B59";//(服务商)的KEY
 
         public static string APPID = "wx05139f8f621618bd"; //小程序APP_ID

@@ -13,6 +13,7 @@ namespace TransactionAppletaApi
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            RedisTimerManager.Run();
         }
     }
 }

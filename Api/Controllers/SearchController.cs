@@ -67,9 +67,11 @@ namespace TransactionAppletaApi
                     int page = jtoken.page;
                     int limit = jtoken.limit;
                     JToken filter = jtoken.filters;
+                    string orderByField = jtoken.orderByField;
+                    string isDesc = jtoken.isDesc;
                     var wsql = filter.ToFilterSql();
                     //构造take
-                    var backResult = SearchHelper.SearchTable(tableName, wsql, page, limit);
+                    var backResult = SearchHelper.SearchTable(tableName, wsql, page, limit, orderByField, isDesc);
                     return new { Table = backResult.Tables[0], IS_SUCCESS = true, MSG = "" };
                 }
                 catch (Exception ex)

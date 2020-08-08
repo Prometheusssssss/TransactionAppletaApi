@@ -1,0 +1,729 @@
+2020/08/07 13:29:10-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"033nf5ll2n2Eo54oYbll2X1kER3nf5lC"}
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[appid, wx05139f8f621618bd]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[attach, ]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[body, 客锦囊下单]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[mch_id, 1601662044]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[nonce_str, f0556b34207b4ef0b39a866a25caf7b0]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[sign_type, MD5]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[spbill_create_ip, 127.0.0.1]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[total_fee, 300]
+2020/08/07 13:29:16-2
+2020/08/07 13:29:16-[trade_type, JSAPI]
+2020/08/07 13:29:16-ForApplets:{"appid":"wx05139f8f621618bd","attach":"","body":"\u5BA2\u9526\u56CA\u4E0B\u5355","mch_id":"1601662044","nonce_str":"f0556b34207b4ef0b39a866a25caf7b0","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","out_trade_no":"MS1595827312229CC73Whmd","sign":"F7DF306C032DE022C0F6AB0A2B12C7BA","sign_type":"MD5","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[appid, wx05139f8f621618bd]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[attach, ]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[body, 客锦囊下单]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[mch_id, 1601662044]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[nonce_str, f0556b34207b4ef0b39a866a25caf7b0]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[sign, F7DF306C032DE022C0F6AB0A2B12C7BA]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[sign_type, MD5]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[spbill_create_ip, 127.0.0.1]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[total_fee, 300]
+2020/08/07 13:29:16-1
+2020/08/07 13:29:16-[trade_type, JSAPI]
+2020/08/07 13:29:18-<xml><return_code><![CDATA[FAIL]]></return_code>
+<return_msg><![CDATA[签名错误]]></return_msg>
+</xml>
+2020/08/07 13:29:41-2
+2020/08/07 13:29:41-[appId, ]
+2020/08/08 10:16:16-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"003A1Fkl2pnTo54p4ill2vM6kN1A1Fk6","productId":"1","buyUserId":"1"}
+2020/08/08 10:17:29-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"003A1Fkl2pnTo54p4ill2vM6kN1A1Fk6","productId":"13","buyUserId":"1"}
+2020/08/08 10:17:40-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"003A1Fkl2pnTo54p4ill2vM6kN1A1Fk6","productId":"13","buyUserId":"1"}
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[appid, wx05139f8f621618bd]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[attach, 13|1]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[body, 小程序下单]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[mch_id, 1601662044]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[nonce_str, 777d196570f948d7b7027e87bd250bc5]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[sign_type, MD5]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[total_fee, 300]
+2020/08/08 10:18:15-2
+2020/08/08 10:18:15-[trade_type, JSAPI]
+2020/08/08 10:18:15-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"777d196570f948d7b7027e87bd250bc5","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","out_trade_no":"MS1595827312229CC73Whmd","sign":"C85348C0FF79ACA87EE9CC75ED8E3A53","sign_type":"MD5","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[appid, wx05139f8f621618bd]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[attach, 13|1]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[body, 小程序下单]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[mch_id, 1601662044]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[nonce_str, 777d196570f948d7b7027e87bd250bc5]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[sign, C85348C0FF79ACA87EE9CC75ED8E3A53]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[sign_type, MD5]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[total_fee, 300]
+2020/08/08 10:18:16-1
+2020/08/08 10:18:16-[trade_type, JSAPI]
+2020/08/08 10:18:18-<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx05139f8f621618bd]]></appid>
+<mch_id><![CDATA[1601662044]]></mch_id>
+<nonce_str><![CDATA[CZ6bD5LCSCdQ9L0h]]></nonce_str>
+<sign><![CDATA[EB6C009D6FA7A034319DCC38DA285A59]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[JSAPI支付必须传openid]]></err_code_des>
+</xml>
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[appid, wx05139f8f621618bd]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[err_code, PARAM_ERROR]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[err_code_des, JSAPI支付必须传openid]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[mch_id, 1601662044]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[nonce_str, CZ6bD5LCSCdQ9L0h]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[result_code, FAIL]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[return_code, SUCCESS]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[return_msg, OK]
+2020/08/08 10:18:18-2
+2020/08/08 10:18:18-[sign, EB6C009D6FA7A034319DCC38DA285A59]
+2020/08/08 10:18:51-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"select * from B_PRODUCT_LIST where status='上架中' and kid='13' and OFF_SHELF_TIME > '2020-08-08 10:17:40'","productId":"13","buyUserId":"1"}
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[appid, wx05139f8f621618bd]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[attach, 13|1]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[body, 小程序下单]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[mch_id, 1601662044]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[nonce_str, e6f756f9aef84b9cb2409a9ef2685c06]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[sign_type, MD5]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[total_fee, 300]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[trade_type, JSAPI]
+2020/08/08 10:18:55-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"e6f756f9aef84b9cb2409a9ef2685c06","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","out_trade_no":"MS1595827312229CC73Whmd","sign":"2E6FB32ED24D405A97F122019081EC4B","sign_type":"MD5","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[appid, wx05139f8f621618bd]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[attach, 13|1]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[body, 小程序下单]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[mch_id, 1601662044]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[nonce_str, e6f756f9aef84b9cb2409a9ef2685c06]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[sign, 2E6FB32ED24D405A97F122019081EC4B]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[sign_type, MD5]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[total_fee, 300]
+2020/08/08 10:18:55-1
+2020/08/08 10:18:55-[trade_type, JSAPI]
+2020/08/08 10:18:55-<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx05139f8f621618bd]]></appid>
+<mch_id><![CDATA[1601662044]]></mch_id>
+<nonce_str><![CDATA[Motb9NDJ8e3ot4JO]]></nonce_str>
+<sign><![CDATA[4E1FA6A7A027C9333DE6B6D46BAF2ABA]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[JSAPI支付必须传openid]]></err_code_des>
+</xml>
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[appid, wx05139f8f621618bd]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[err_code, PARAM_ERROR]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[err_code_des, JSAPI支付必须传openid]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[mch_id, 1601662044]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[nonce_str, Motb9NDJ8e3ot4JO]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[result_code, FAIL]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[return_code, SUCCESS]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[return_msg, OK]
+2020/08/08 10:18:55-2
+2020/08/08 10:18:55-[sign, 4E1FA6A7A027C9333DE6B6D46BAF2ABA]
+2020/08/08 10:19:02-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"093YFA0005DI3K1J3m1001RrZV0YFA0s","productId":"13","buyUserId":"1"}
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[appid, wx05139f8f621618bd]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[attach, 13|1]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[body, 小程序下单]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[mch_id, 1601662044]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[nonce_str, b56c347c21714589b1a9a84bde8b3c26]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[sign_type, MD5]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[total_fee, 300]
+2020/08/08 10:19:08-2
+2020/08/08 10:19:08-[trade_type, JSAPI]
+2020/08/08 10:19:08-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"b56c347c21714589b1a9a84bde8b3c26","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","out_trade_no":"MS1595827312229CC73Whmd","sign":"42D93AF601521E6A5B53A8FE7AE6BF0B","sign_type":"MD5","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[appid, wx05139f8f621618bd]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[attach, 13|1]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[body, 小程序下单]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[mch_id, 1601662044]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[nonce_str, b56c347c21714589b1a9a84bde8b3c26]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[sign, 42D93AF601521E6A5B53A8FE7AE6BF0B]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[sign_type, MD5]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[total_fee, 300]
+2020/08/08 10:19:09-1
+2020/08/08 10:19:09-[trade_type, JSAPI]
+2020/08/08 10:19:12-<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx05139f8f621618bd]]></appid>
+<mch_id><![CDATA[1601662044]]></mch_id>
+<nonce_str><![CDATA[qEtSmWkIm5EZ5EaQ]]></nonce_str>
+<sign><![CDATA[F961C0795AA14B7FDD2B0FC36166E857]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[JSAPI支付必须传openid]]></err_code_des>
+</xml>
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[appid, wx05139f8f621618bd]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[err_code, PARAM_ERROR]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[err_code_des, JSAPI支付必须传openid]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[mch_id, 1601662044]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[nonce_str, qEtSmWkIm5EZ5EaQ]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[result_code, FAIL]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[return_code, SUCCESS]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[return_msg, OK]
+2020/08/08 10:19:12-2
+2020/08/08 10:19:12-[sign, F961C0795AA14B7FDD2B0FC36166E857]
+2020/08/08 10:22:33-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"053AQN0w3guiJU20bI0w3JA5944AQN0w","productId":"13","buyUserId":"1"}
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[appid, wx05139f8f621618bd]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[attach, 13|1]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[body, 小程序下单]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[mch_id, 1601662044]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[nonce_str, cd30782dbc6c44e683d2037d91e7bfb3]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[openId, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[sign_type, MD5]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[total_fee, 300]
+2020/08/08 10:22:41-2
+2020/08/08 10:22:41-[trade_type, JSAPI]
+2020/08/08 10:22:41-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"cd30782dbc6c44e683d2037d91e7bfb3","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","openId":"o8eqv4saKy7llOIJl80019bdNAyo","out_trade_no":"MS1595827312229CC73Whmd","sign":"B466474236C54E3E0B3167A9115A8429","sign_type":"MD5","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[appid, wx05139f8f621618bd]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[attach, 13|1]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[body, 小程序下单]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[mch_id, 1601662044]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[nonce_str, cd30782dbc6c44e683d2037d91e7bfb3]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[openId, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[sign, B466474236C54E3E0B3167A9115A8429]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[sign_type, MD5]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[total_fee, 300]
+2020/08/08 10:22:42-1
+2020/08/08 10:22:42-[trade_type, JSAPI]
+2020/08/08 10:22:43-<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx05139f8f621618bd]]></appid>
+<mch_id><![CDATA[1601662044]]></mch_id>
+<nonce_str><![CDATA[krrAMvTQVMqPAAhs]]></nonce_str>
+<sign><![CDATA[D962232B96A4E7527D785A2786179BF9]]></sign>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<err_code_des><![CDATA[JSAPI支付必须传openid]]></err_code_des>
+</xml>
+2020/08/08 10:22:43-2
+2020/08/08 10:22:43-[appid, wx05139f8f621618bd]
+2020/08/08 10:22:43-2
+2020/08/08 10:22:43-[err_code, PARAM_ERROR]
+2020/08/08 10:22:43-2
+2020/08/08 10:22:43-[err_code_des, JSAPI支付必须传openid]
+2020/08/08 10:22:43-2
+2020/08/08 10:22:43-[mch_id, 1601662044]
+2020/08/08 10:22:43-2
+2020/08/08 10:22:43-[nonce_str, krrAMvTQVMqPAAhs]
+2020/08/08 10:22:43-2
+2020/08/08 10:22:43-[result_code, FAIL]
+2020/08/08 10:22:43-2
+2020/08/08 10:22:43-[return_code, SUCCESS]
+2020/08/08 10:22:43-2
+2020/08/08 10:22:44-[return_msg, OK]
+2020/08/08 10:22:44-2
+2020/08/08 10:22:44-[sign, D962232B96A4E7527D785A2786179BF9]
+2020/08/08 10:24:16-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"063tcH1007ZB2K1Str200sMPwZ3tcH1-","productId":"13","buyUserId":"1"}
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[appid, wx05139f8f621618bd]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[attach, 13|1]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[body, 小程序下单]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[mch_id, 1601662044]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[nonce_str, 4ce13c68779f469fa9362c883c3811b8]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[sign_type, MD5]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[total_fee, 300]
+2020/08/08 10:24:21-2
+2020/08/08 10:24:21-[trade_type, JSAPI]
+2020/08/08 10:24:21-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"4ce13c68779f469fa9362c883c3811b8","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","openid":"o8eqv4saKy7llOIJl80019bdNAyo","out_trade_no":"MS1595827312229CC73Whmd","sign":"E4E65D4AE6F533352C07AC6C0059D628","sign_type":"MD5","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[appid, wx05139f8f621618bd]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[attach, 13|1]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[body, 小程序下单]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[mch_id, 1601662044]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[nonce_str, 4ce13c68779f469fa9362c883c3811b8]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[sign, E4E65D4AE6F533352C07AC6C0059D628]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[sign_type, MD5]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[total_fee, 300]
+2020/08/08 10:24:21-1
+2020/08/08 10:24:21-[trade_type, JSAPI]
+2020/08/08 10:24:23-<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx05139f8f621618bd]]></appid>
+<mch_id><![CDATA[1601662044]]></mch_id>
+<nonce_str><![CDATA[DdNHnoYBV1TI1JYv]]></nonce_str>
+<sign><![CDATA[BFCC4E2DE21B70E662F227509007CA04]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<prepay_id><![CDATA[wx081024224072906b2bfd70ac5e57390000]]></prepay_id>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+</xml>
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[appid, wx05139f8f621618bd]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[mch_id, 1601662044]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[nonce_str, DdNHnoYBV1TI1JYv]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[prepay_id, wx081024224072906b2bfd70ac5e57390000]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[result_code, SUCCESS]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[return_code, SUCCESS]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[return_msg, OK]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[sign, BFCC4E2DE21B70E662F227509007CA04]
+2020/08/08 10:24:23-2
+2020/08/08 10:24:23-[trade_type, JSAPI]
+2020/08/08 10:24:32-2
+2020/08/08 10:24:32-[appId, wx05139f8f621618bd]
+2020/08/08 10:24:32-2
+2020/08/08 10:24:32-[mch_id, 1601662044]
+2020/08/08 10:24:32-2
+2020/08/08 10:24:32-[nonceStr, cc037eb99a304428b7de66a629dee744]
+2020/08/08 10:24:32-2
+2020/08/08 10:24:32-[package, prepay_id=wx081024224072906b2bfd70ac5e57390000]
+2020/08/08 10:24:32-2
+2020/08/08 10:24:32-[signType, MD5]
+2020/08/08 10:24:32-2
+2020/08/08 10:24:32-[timeStamp, 1596853472]
+2020/08/08 10:24:32-ForWechatPay:{"appId":"wx05139f8f621618bd","mch_id":"1601662044","nonceStr":"cc037eb99a304428b7de66a629dee744","package":"prepay_id=wx081024224072906b2bfd70ac5e57390000","paySign":"880EFE5CDF6885ACBD7247E5F9C7FA5E","signType":"MD5","timeStamp":"1596853472"}
+2020/08/08 10:30:39-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"013IZdll21qmo54BoOkl2lhLUz4IZdlE-","productId":"13","buyUserId":"1"}
+2020/08/08 10:30:52-JSCODE 013IZdll21qmo54BoOkl2lhLUz4IZdlE-获取不到openId
+2020/08/08 10:30:55-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"013IZdll21qmo54BoOkl2lhLUz4IZdlE","productId":"13","buyUserId":"1"}
+2020/08/08 10:33:10-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"023ByB000xEJ3K1X6Z200AQK8b2ByB0W","productId":"13","buyUserId":"1"}
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[appid, wx05139f8f621618bd]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[attach, 13|1]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[body, 小程序下单]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[mch_id, 1601662044]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[nonce_str, 9bf6fbe679ca4591981c42ff6d930a87]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[sign_type, HMACSHA256]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[total_fee, 300]
+2020/08/08 10:33:17-2
+2020/08/08 10:33:17-[trade_type, JSAPI]
+2020/08/08 10:33:17-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"9bf6fbe679ca4591981c42ff6d930a87","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","openid":"o8eqv4saKy7llOIJl80019bdNAyo","out_trade_no":"MS1595827312229CC73Whmd","sign":"7C697F1F3B8458ECA322048FB91CCC9781E3D589C36201CF0A9123752C314373","sign_type":"HMACSHA256","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[appid, wx05139f8f621618bd]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[attach, 13|1]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[body, 小程序下单]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[mch_id, 1601662044]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[nonce_str, 9bf6fbe679ca4591981c42ff6d930a87]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[sign, 7C697F1F3B8458ECA322048FB91CCC9781E3D589C36201CF0A9123752C314373]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[sign_type, HMACSHA256]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[total_fee, 300]
+2020/08/08 10:33:17-1
+2020/08/08 10:33:17-[trade_type, JSAPI]
+2020/08/08 10:33:18-<xml><return_code><![CDATA[FAIL]]></return_code>
+<return_msg><![CDATA[签名类型不支持]]></return_msg>
+</xml>
+2020/08/08 10:33:57-2
+2020/08/08 10:33:57-[appId, ]
+2020/08/08 10:35:06-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"043RcXkl2Ccbp54ju6ol2ydyzZ3RcXkt","productId":"13","buyUserId":"1"}
+2020/08/08 10:35:40-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"093KEk000uxy4K10l7100Z9HvI3KEk0J","productId":"13","buyUserId":"1"}
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[appid, wx05139f8f621618bd]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[attach, 13|1]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[body, 小程序下单]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[mch_id, 1601662044]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[nonce_str, e62d0e32e32e4766aef523cfa2d8c365]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[sign_type, HMAC-SHA256]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[total_fee, 300]
+2020/08/08 10:35:45-2
+2020/08/08 10:35:45-[trade_type, JSAPI]
+2020/08/08 10:35:45-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"e62d0e32e32e4766aef523cfa2d8c365","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","openid":"o8eqv4saKy7llOIJl80019bdNAyo","out_trade_no":"MS1595827312229CC73Whmd","sign":"8F63CACA37D1988D54D1D864628C141859569E54BC48EA27E7A6E4A777683727","sign_type":"HMAC-SHA256","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[appid, wx05139f8f621618bd]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[attach, 13|1]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[body, 小程序下单]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[mch_id, 1601662044]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[nonce_str, e62d0e32e32e4766aef523cfa2d8c365]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[sign, 8F63CACA37D1988D54D1D864628C141859569E54BC48EA27E7A6E4A777683727]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[sign_type, HMAC-SHA256]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[total_fee, 300]
+2020/08/08 10:35:45-1
+2020/08/08 10:35:45-[trade_type, JSAPI]
+2020/08/08 10:35:46-<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx05139f8f621618bd]]></appid>
+<mch_id><![CDATA[1601662044]]></mch_id>
+<nonce_str><![CDATA[fmJ3PP757tq7zjAD]]></nonce_str>
+<sign><![CDATA[8C5352DB3C2CB00340DF465B7D6A61B4FA554A560FE7DC76A37F65AF0804E17D]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<prepay_id><![CDATA[wx081035464443996b2bfd70aca1eb560000]]></prepay_id>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+</xml>
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[appid, wx05139f8f621618bd]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[mch_id, 1601662044]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[nonce_str, fmJ3PP757tq7zjAD]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[prepay_id, wx081035464443996b2bfd70aca1eb560000]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[result_code, SUCCESS]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[return_code, SUCCESS]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[return_msg, OK]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[sign, 8C5352DB3C2CB00340DF465B7D6A61B4FA554A560FE7DC76A37F65AF0804E17D]
+2020/08/08 10:35:46-2
+2020/08/08 10:35:46-[trade_type, JSAPI]
+2020/08/08 10:37:26-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"043f4EFa1Q9fpz0pyQFa1qsLI50f4EFi","productId":"13","buyUserId":"1"}
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[appid, wx05139f8f621618bd]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[attach, 13|1]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[body, 小程序下单]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[mch_id, 1601662044]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[nonce_str, 174b5a6058814e84b4a5e18297a4bce0]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[sign_type, HMAC-SHA256]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[total_fee, 300]
+2020/08/08 10:37:37-2
+2020/08/08 10:37:37-[trade_type, JSAPI]
+2020/08/08 10:37:37-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"174b5a6058814e84b4a5e18297a4bce0","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","openid":"o8eqv4saKy7llOIJl80019bdNAyo","out_trade_no":"MS1595827312229CC73Whmd","sign":"DED5F3213BB8337F32962819374B2C5A0CEC4505A383967E5F721FA81499FF42","sign_type":"HMAC-SHA256","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[appid, wx05139f8f621618bd]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[attach, 13|1]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[body, 小程序下单]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[mch_id, 1601662044]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[nonce_str, 174b5a6058814e84b4a5e18297a4bce0]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[sign, DED5F3213BB8337F32962819374B2C5A0CEC4505A383967E5F721FA81499FF42]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[sign_type, HMAC-SHA256]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[total_fee, 300]
+2020/08/08 10:37:47-1
+2020/08/08 10:37:47-[trade_type, JSAPI]
+2020/08/08 10:45:03-调用支付Json:{"price":"3.00","orderNo":"MS1595827312229CC73Whmd","description":"客锦囊下单","jsCode":"013rOXkl2bsap54hHOml24JmGd0rOXk-","productId":"13","buyUserId":"1"}
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[appid, wx05139f8f621618bd]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[attach, 13|1]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[body, 小程序下单]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[mch_id, 1601662044]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[nonce_str, 9c93f13b8fe840f68da3ae58d472f087]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[sign_type, HMAC-SHA256]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[total_fee, 300]
+2020/08/08 10:45:12-2
+2020/08/08 10:45:12-[trade_type, JSAPI]
+2020/08/08 10:45:13-ForApplets:{"appid":"wx05139f8f621618bd","attach":"13|1","body":"\u5C0F\u7A0B\u5E8F\u4E0B\u5355","mch_id":"1601662044","nonce_str":"9c93f13b8fe840f68da3ae58d472f087","notify_url":"https://www.dazuiba.cloud//api/_wxp/tenpay_notify","openid":"o8eqv4saKy7llOIJl80019bdNAyo","out_trade_no":"MS1595827312229CC73Whmd","sign":"81DE994BE25E659C0F012F42E5C72F3D21577CDAC2E4F55494A9C3A79AB68C50","sign_type":"HMAC-SHA256","spbill_create_ip":"127.0.0.1","total_fee":300,"trade_type":"JSAPI"}
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[appid, wx05139f8f621618bd]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[attach, 13|1]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[body, 小程序下单]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[mch_id, 1601662044]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[nonce_str, 9c93f13b8fe840f68da3ae58d472f087]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[notify_url, https://www.dazuiba.cloud//api/_wxp/tenpay_notify]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[openid, o8eqv4saKy7llOIJl80019bdNAyo]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[out_trade_no, MS1595827312229CC73Whmd]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[sign, 81DE994BE25E659C0F012F42E5C72F3D21577CDAC2E4F55494A9C3A79AB68C50]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[sign_type, HMAC-SHA256]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[spbill_create_ip, 127.0.0.1]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[total_fee, 300]
+2020/08/08 10:45:16-1
+2020/08/08 10:45:16-[trade_type, JSAPI]
+2020/08/08 10:49:51-<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<appid><![CDATA[wx05139f8f621618bd]]></appid>
+<mch_id><![CDATA[1601662044]]></mch_id>
+<nonce_str><![CDATA[c2JElm1b8ZOyz6wE]]></nonce_str>
+<sign><![CDATA[0997B769C059A4F38B5C67A5D88833973FB83D83CD51710B9B82208392E521E6]]></sign>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<prepay_id><![CDATA[wx081049509307216b2bfd70acdef2c40000]]></prepay_id>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+</xml>
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[appid, wx05139f8f621618bd]
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[mch_id, 1601662044]
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[nonce_str, c2JElm1b8ZOyz6wE]
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[prepay_id, wx081049509307216b2bfd70acdef2c40000]
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[result_code, SUCCESS]
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[return_code, SUCCESS]
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[return_msg, OK]
+2020/08/08 10:49:51-2
+2020/08/08 10:49:51-[sign, 0997B769C059A4F38B5C67A5D88833973FB83D83CD51710B9B82208392E521E6]
+2020/08/08 10:49:52-2
+2020/08/08 10:49:52-[trade_type, JSAPI]

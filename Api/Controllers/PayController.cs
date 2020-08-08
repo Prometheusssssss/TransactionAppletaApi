@@ -26,57 +26,67 @@ namespace TransactionAppletaApi
                 {
                     WxPayData wxp = new WxPayData();
                     wxp.WriteLogFile("调用支付Json:" + json.ToJsonString());
-
-                    ////前缀，避免测试服务器与正式服务器订单号重复
-                    //var prefix = System.Configuration.ConfigurationManager.AppSettings["TransactionPrefix"];
                     var arg = json.AsDynamic();
                     var ip = GetClientIpAddress();
                     //金额
                     string price = arg.price;
-                    //是否分账
-                    string profit_sharing = arg.profit_sharing;
                     //订单号
-                    string jNo = arg.orderNo;
-                    string orderNo = jNo + "_" + this.LoginUser.Cid + "_" + profit_sharing;
-                    //string orderNo = prefix + jNo + "_" + this.LoginUser.Cid;
-                    //描述
-                    string description = arg.description;
-                    //子商户号
-                    string subMchId = arg.subMchId;
+                    string orderNo = arg.orderNo;
+                    //产品ID
+                    string productId = arg.productId;
+                    //买家ID
+                    string buyUserId = arg.buyUserId;
                     //JsCode
                     string jsCode = arg.jsCode;
-                    //调起支付的小程序ID
-                    string subAppId = arg.subAppId;
-                    //ApiUrl
-                    string apiUrl = arg.apiUrl;
-                    //存储过程名称
-                    string spName = arg.spName;
-                    var attach = "{'spName':'" + spName + "','apiUrl':'" + apiUrl + "'}";
                     //获取OpenId
                     var openId = WxPayData.GetOpenId(jsCode).openid;
-                    if (openId == "")
+                    if (openId == "" || openId == null)
                     {
                         var msg = "JSCODE " + jsCode + "获取不到openId";
                         wxp.WriteLogFile(msg);
                         return new { Table = new { MSG = "", IsSuccess = false, ErroMessage = msg } };
                     }
-                    var url = GlobalVariableWeChatApplets.UNIFIEDORDER_URL;
-                    var data = WxPayData.ForApplets(double.Parse(price), orderNo, description, ip);
-                    var xml = data.ToXml();
-                    var response = HttpService.Post(xml, url, 6);
-                    var preOrder = WxPayData.FromXml(response);
-                    var errCode = preOrder.GetValue("err_code");
-                    if (errCode != null)
+                    #region 锁定产品状态
+                    //执行sql
+                    using (var x = Join.Dal.MySqlProvider.X())
                     {
-                        var errMsg = preOrder.GetValue("err_code_des");
-                        return new { Table = new { MSG = "", IsSuccess = false, ErroMessage = errMsg } };
+                        //获取产品ID 查询产品是否在上架时间并且状态为上架中
+                        var nowDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        var selectProductSql = "select * from B_PRODUCT_LIST where status='上架中' and kid='" + productId + "' and OFF_SHELF_TIME > '" + nowDate + "'";
+                        var selectProductTables = x.ExecuteSqlCommand(selectProductSql);
+                        if (selectProductTables.Tables[0].Rows.Count > 0)
+                        {
+                            //执行调用付款
+                            //构造附加数据
+                            string attach = productId + "|" + buyUserId;
+                            var url = GlobalVariableWeChatApplets.UNIFIEDORDER_URL;
+                            var data = WxPayData.ForApplets(double.Parse(price), openId, orderNo, ip, attach);
+                            var xml = data.ToXml();
+                            var response = HttpService.Post(xml, url, 6);
+                            var preOrder = WxPayData.FromXml(response, "HMAC-SHA256");
+                            var errCode = preOrder.GetValue("err_code");
+                            if (errCode != null)
+                            {
+                                var errMsg = preOrder.GetValue("err_code_des");
+                                return new { Table = new { MSG = "", IsSuccess = false, ErroMessage = errMsg } };
+                            }
+                            else
+                            {
+                                //如果调起支付成功，锁定产品状态为已锁定
+                                var updateProductSql = "update b_product_list set status='已锁定',LOCK_TIME='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where kid = '" + productId + "'";
+                                x.ExecuteSqlCommand(updateProductSql);
+
+                                var payData = WxPayData.ForWechatPay(preOrder);
+                                var orderString = payData.ToJson();
+                                return new { Table = new { MSG = orderString, IsSuccess = true, ErroMessage = string.Empty } };
+                            }
+                        }
+                        else
+                        {
+                            return new { Table = new { MSG = "", IsSuccess = false, ErroMessage = "产品已下架。" } };
+                        }
                     }
-                    else
-                    {
-                        var payData = WxPayData.ForWechatPay(preOrder);
-                        var orderString = payData.ToJson();
-                        return new { Table = new { MSG = orderString, IsSuccess = true, ErroMessage = string.Empty } };
-                    }
+                    #endregion
                 }
                 catch (Exception ex)
                 {

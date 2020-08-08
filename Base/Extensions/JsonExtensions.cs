@@ -132,6 +132,37 @@ namespace Join
         }
         #endregion
 
+        #region X.成员方法[ToOrderBySql]
+        /// <summary>
+        /// 转排序
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static string ToOrderBySql(this JToken target)
+        {
+            var result = string.Empty;
+            var jobj = target as JObject;
+            //var i = 0;
+            foreach (var de in jobj)
+            {
+                //i++;
+                if (de.Key != "TEMPLATE_NAME")
+                {
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        result += " AND ";
+                    }
+                    if (de.Value.ToString() == "")
+                        result += de.Key + " IS NULL";
+                    else
+                        result += de.Key + "='" + de.Value + "'";
+                    //if (i < jobj.Count) result += " AND ";
+                }
+            }
+            return result;
+        }
+        #endregion
+
         #region X.成员方法[ToWhereSql]
         /// <summary>
         /// 转WHERE条件
@@ -201,7 +232,7 @@ namespace Join
                                         valueSql = valueSql.AddSql(item + " like '%" + filterValue + "%' or ", false);
 
                                 }
-                                sql = sql.AddSql("(" + valueSql + ")", false);
+                                sql = sql.AddSql("(" + valueSql + ")", true);
                             }
                             break;
                         case "date":

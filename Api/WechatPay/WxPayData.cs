@@ -18,7 +18,7 @@ namespace TransactionAppletaApi
         #endregion
 
         #region F.工厂方法
-        public static WxPayData ForApplets(double price, string orderNo, string description, string ip)
+        public static WxPayData ForApplets(double price, string openId, string orderNo, string ip, string attach)
         {
             var url = System.Configuration.ConfigurationManager.AppSettings["notify_url"];
             var fee = Convert.ToInt32(price * 100);
@@ -27,14 +27,15 @@ namespace TransactionAppletaApi
             result.SetValue("appid", GlobalVariableWeChatApplets.APPID);
             result.SetValue("mch_id", GlobalVariableWeChatApplets.MCH_ID);//商户号
             result.SetValue("nonce_str", GenerateNonceStr());//随机字符串
-            result.SetValue("body", description);//商品描述
+            result.SetValue("body", "小程序下单");//商品描述
             result.SetValue("out_trade_no", orderNo);//订单号
             result.SetValue("total_fee", fee);//总金额
-            result.SetValue("attach", "");//附加数据
+            result.SetValue("openid", openId);//用户openId	
+            result.SetValue("attach", attach);//附加数据
             result.SetValue("spbill_create_ip", ip);//终端ip	
             result.SetValue("notify_url", url + "/api/_wxp/tenpay_notify");//异步通知url
-            result.SetValue("sign_type", "MD5"); //签名类型
-            result.SetValue("sign", result.WechatMakeSign()); //签名
+            result.SetValue("sign_type", "HMAC-SHA256"); //签名类型
+            result.SetValue("sign", result.WechatMakeSignByHMAC_SHA256()); //签名
             result.WriteLogFile("ForApplets:" + result.ToJson());
             return result;
         }
@@ -133,11 +134,9 @@ namespace TransactionAppletaApi
             var sales_no = "";
             var total = "0";
             var transaction_id = "";
-            var sub_mch_id = "";
-            var subAppId = "";
             string attach = null;
-            var notifyData = FromXml(data, "HMACSHA256");
-            if (notifyData.CheckSign("HMACSHA256"))
+            var notifyData = FromXml(data, "HMAC-SHA256");
+            if (notifyData.CheckSign("HMAC-SHA256"))
             //if(true)
             {
                 if (notifyData.GetValue("return_code").ToString() == "SUCCESS")
@@ -147,8 +146,6 @@ namespace TransactionAppletaApi
                         sales_no = (string)notifyData.GetValue("out_trade_no");
                         total = (string)notifyData.GetValue("total_fee");
                         transaction_id = (string)notifyData.GetValue("transaction_id");
-                        sub_mch_id = (string)notifyData.GetValue("sub_mch_id");
-                        subAppId = (string)notifyData.GetValue("appid");
                         attach = (string)notifyData.GetValue("attach");
                         string sa = total;
 
@@ -180,7 +177,7 @@ namespace TransactionAppletaApi
                 throw new Exception(msg);
             }
 
-            return LitJson.JsonMapper.ToJson(new { sales_no = sales_no, total = total, arrach = attach, transaction_id = transaction_id, sub_mch_id = sub_mch_id });
+            return LitJson.JsonMapper.ToJson(new { sales_no = sales_no, total = total, arrach = attach, transaction_id = transaction_id });
 
         }
 
@@ -660,8 +657,6 @@ namespace TransactionAppletaApi
             public string TOTAL { get; set; }
             public string ARRACH { get; set; }
             public string TRANSACTION_ID { get; set; }
-            public string sub_mch_id { get; set; }
-            public string subAppId { get; set; }
         }
 
         public class REFUND_NOTIFY

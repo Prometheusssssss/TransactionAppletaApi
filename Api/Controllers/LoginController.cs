@@ -74,16 +74,17 @@ namespace TransactionAppletaApi
                 try
                 {
                     var jsn = json.AsDynamic();
-                    //string tel = jsn.tel;
                     string jsCode = jsn.jsCode;
-                    string name = jsn.name;
+                    string baseName = jsn.name;
+                    var baseStr = Convert.FromBase64String(baseName);
+                    var name = Encoding.UTF8.GetString(baseStr);
                     string url = jsn.url;
                     string encryptedData = jsn.encryptedData;
                     string iv = jsn.iv;
                     //根据JsCode换取OpenId
                     var jsCode2Session = WxPayData.GetOpenId(jsCode);
                     var openId = jsCode2Session.openid;
-                    if (openId == "")
+                    if (openId == "" || openId == null)
                     {
                         return new { Table = "", IS_SUCCESS = false, MSG = "JsCode失效，未获取到OpenId" };
                     }
