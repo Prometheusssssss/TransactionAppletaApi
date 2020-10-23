@@ -142,7 +142,7 @@ namespace TransactionAppletaApi
                 request.ContentLength = data.Length;
                 request.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)";
                 var cert = System.Configuration.ConfigurationManager.AppSettings["WeChatCert"];
-                X509Certificate2 certificate = new X509Certificate2(cert, "1546693251", X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.MachineKeySet);   //初始化证书
+                X509Certificate2 certificate = new X509Certificate2(cert, "1601662044", X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.MachineKeySet);   //初始化证书
                 request.ClientCertificates.Add(certificate);     //添加证书
 
                 //往服务器写入数据

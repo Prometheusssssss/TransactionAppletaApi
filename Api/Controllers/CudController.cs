@@ -312,29 +312,7 @@ namespace TransactionAppletaApi
                             var sellUserPhone = backTable.Rows[0]["SELL_USER_PHONE"].ToString();
                             var productName = backTable.Rows[0]["PRODUCT_NAME"].ToString();
                             InsertMsg("交易完成提醒", "您的宝贝:[" + productName + "]已交易成功。", sellUserId, sellUserName, sellUserPhone);
-                            //3、更新用户表累计收益金额，可用资金字段，扣除即将收入字段
-                            var orderAmount = decimal.Parse(backTable.Rows[0]["PRICE"].ToString());
-                            //获取用户余额
-                            var selUserSql = "select * from a_user where kid='" + sellUserId + "'";
-                            var selUserDt = x.ExecuteSqlCommand(selUserSql);
-                            if (selUserDt.Tables[0].Rows.Count > 0)
-                            {
-                                var row = selUserDt.Tables[0].Rows[0];
-                                //用户累计收益
-                                var income = decimal.Parse(row["CUMULATIVE_INCOME"].ToString());
-                                var incomeResult = income + orderAmount;
-                                //账户余额
-                                var balance = decimal.Parse(row["BALANCE"].ToString());
-                                var balanceResult = balance + orderAmount;
-                                //即将收入
-                                var upIncome = decimal.Parse(row["UPCOMING_INCOME"].ToString());
-                                var upIncomeResult = upIncome - orderAmount;
-                                //修改Sql
-                                var updateUserSql = "update a_user set BALANCE='" + incomeResult.ToString() + "',CUMULATIVE_INCOME='" + balanceResult.ToString() + "', UPCOMING_INCOME='" + upIncomeResult.ToString() + "' where kid='" + sellUserId + "'";
-                                x.ExecuteSqlCommand(updateUserSql);
-                                x.Close();
-                                return new { Table = backTable, IS_SUCCESS = true, MSG = "" };
-                            }
+                            
                             x.Close();
                             return new { Table = "", IS_SUCCESS = false, MSG = "未查询到用户信息" };
                         }

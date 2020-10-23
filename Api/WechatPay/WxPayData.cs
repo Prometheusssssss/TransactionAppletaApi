@@ -50,8 +50,8 @@ namespace TransactionAppletaApi
             result.SetValue("package", "prepay_id=" + preOrder.GetValue("prepay_id"));//订单详情扩展字符串prepay_id
             result.SetValue("nonceStr", GenerateNonceStr());//随机字符串
             result.SetValue("timeStamp", ConvertDateTimeInt(DateTime.Now));//时间戳
-            result.SetValue("signType", "MD5");
-            result.SetValue("paySign", result.WechatMakeSign());//签名
+            result.SetValue("signType", "HMAC-SHA256");
+            result.SetValue("paySign", result.WechatMakeSignByHMAC_SHA256());//签名
             result.WriteLogFile("ForWechatPay:" + result.ToJson());
             return result;
         }
@@ -59,7 +59,7 @@ namespace TransactionAppletaApi
         /// <summary>
         /// 退款
         /// </summary>
-        public static WxPayData ForRefund(double price, double refundPrice, string orderNo, string refundNo, string subMchId, string apiUrl, string subAppId)
+        public static WxPayData ForRefund(double price, double refundPrice, string orderNo, string refundNo)
         {
             var url = System.Configuration.ConfigurationManager.AppSettings["notify_url"];
             var fee = Convert.ToInt32(price * 100);
@@ -67,16 +67,15 @@ namespace TransactionAppletaApi
             var result = new WxPayData();
             result.SetValue("appid", GlobalVariableWeChatApplets.APPID);//服务商的APPID
             result.SetValue("mch_id", GlobalVariableWeChatApplets.MCH_ID);//商户号
-            result.SetValue("sub_appid", subAppId);//小程序的APPID
-            result.SetValue("sub_mch_id", subMchId);//子商户号
             result.SetValue("nonce_str", GenerateNonceStr());//随机字符串
             result.SetValue("out_trade_no", orderNo);//订单号
             result.SetValue("out_refund_no", refundNo);// "{'cid':" + cid + ",'crt_code':" + loginCode + ",'refNo':" + refundNo + " }");//商户退款单号（拼接CID CODE）
             result.SetValue("total_fee", fee);//订单金额
             result.SetValue("refund_fee", refundPriceFee);//退款金额
-            result.SetValue("notify_url", url + apiUrl + "/api/_wxp/refundApi");//退款通知url
+            result.SetValue("notify_url", url + "/api/_wxp/refundApi");//退款通知url
             //签名
-            result.SetValue("sign", result.WechatMakeSign()); //签名
+            result.SetValue("sign_type", "HMAC-SHA256"); //签名类型
+            result.SetValue("sign", result.WechatMakeSignByHMAC_SHA256()); //签名
             result.WriteLogFile("退款Json:" + result.ToJson());
             return result;
         }
@@ -87,8 +86,8 @@ namespace TransactionAppletaApi
             result.SetValue("appId", preOrder.GetValue("appid"));//公众账号ID
             result.SetValue("nonceStr", GenerateNonceStr());//随机字符串
             result.SetValue("timeStamp", ConvertDateTimeInt(DateTime.Now));//时间戳
-            result.SetValue("signType", "MD5");
-            result.SetValue("paySign", result.WechatMakeSign());//签名
+            result.SetValue("sign_type", "HMAC-SHA256"); //签名类型
+            result.SetValue("paySign", result.WechatMakeSignByHMAC_SHA256());//签名
             result.WriteLogFile("ForWechatPay:" + result.ToJson());
             return result;
         }

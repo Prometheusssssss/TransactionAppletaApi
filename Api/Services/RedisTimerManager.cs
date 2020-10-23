@@ -36,8 +36,10 @@ namespace TransactionAppletaApi
         /// </summary>
         static void TodoTask(object state)
         {
-            //执行任务
+            //自动下架
             ShelvesProductRunner sp = new ShelvesProductRunner();
+            //解除锁定定时器
+            UnLockProductRunner up = new UnLockProductRunner();
             sp.Do();
         }
         #endregion

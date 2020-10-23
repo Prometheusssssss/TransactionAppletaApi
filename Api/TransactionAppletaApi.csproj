@@ -137,6 +137,8 @@
     <Compile Include="SearchHelper\SearchHelper.cs" />
     <Compile Include="Security\AuthorizationRequiredAttribute.cs" />
     <Compile Include="Services\RedisTimerManager.cs" />
+    <Compile Include="Services\Runner\UpdateOrderRunner.cs" />
+    <Compile Include="Services\Runner\UnLockProductRunner.cs" />
     <Compile Include="Services\Runner\ShelvesProductRunner.cs" />
     <Compile Include="Unit\Util.cs" />
     <Compile Include="WechatPay\GlobalVariable.cs" />

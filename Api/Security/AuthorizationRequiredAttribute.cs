@@ -15,8 +15,6 @@ namespace TransactionAppletaApi.Security
     /// </summary>
     public class AuthorizationRequiredAttribute : ActionFilterAttribute
     {
-
-
         #region X.成员方法[OnActionExcuting(filterContext)]
         /// <summary>
         /// 执行Action前检查权限
@@ -26,34 +24,18 @@ namespace TransactionAppletaApi.Security
         {
             if (!Skip(filterContext))
             {
-                if (filterContext.Request.Headers.Contains(AjaxHeader.ID)
-                 && filterContext.Request.Headers.Contains(AjaxHeader.CID)
-                && filterContext.Request.Headers.Contains(AjaxHeader.CODE)
-                && filterContext.Request.Headers.Contains(AjaxHeader.TOKEN))
+                if (filterContext.Request.Headers.Contains(AjaxHeader.TOKEN))
                 {
-                    var id = int.Parse(filterContext.Request.Headers.GetValues(AjaxHeader.ID).First());
-                    var cid = int.Parse(filterContext.Request.Headers.GetValues(AjaxHeader.CID).First());
-                    var code = filterContext.Request.Headers.GetValues(AjaxHeader.CODE).First();
                     var token = filterContext.Request.Headers.GetValues(AjaxHeader.TOKEN).First();
+                    //校验token跟本地生成的token的比对
 
-                    var action = filterContext.ActionDescriptor;
-                    //判断登录信息
-                    // Validate Token
-                    //if (!SecurityService
-                    //    .ValidateToken(token, cid, id, code))
-                    //{
-                    //    var responseMessage = new HttpResponseMessage(HttpStatusCode.Unauthorized) { ReasonPhrase = "Unauthorized" };
-                    //    filterContext.Response = responseMessage;
-                    //}
                 }
                 else
                 {
                     filterContext.Response = new HttpResponseMessage(HttpStatusCode.Unauthorized);
                 }
             }
-
             base.OnActionExecuting(filterContext);
-
         }
         #endregion
 

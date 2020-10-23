@@ -6,12 +6,12 @@ using System.Web.Http;
 namespace TransactionAppletaApi
 {
     [RoutePrefix("api/_search")]
-    //[Security.AuthorizationRequired]
+    [Security.AuthorizationRequired]
     public class SearchController : BaseController
     {
-        #region X.成员方法[计算]
+        #region X.成员方法[测试]
         /// <summary>
-        /// 使用Model Data获取数据
+        /// 测试
         /// </summary>
         [HttpGet]
         [Route("test/{str}")]
